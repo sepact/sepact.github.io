@@ -1,10 +1,341 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>Mon site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SepactClient — Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body style="background:black; color:white; text-align:center;">
-  <h1>Bienvenue sur mon site 🎮</h1>
-  <p>Mon premier site est en ligne !</p>
+<body>
+
+  <!-- BACKGROUND GRID -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">SEPACT<span>CLIENT</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Accueil</a></li>
+      <li><a href="#features">Fonctionnalités</a></li>
+      <li><a href="#pricing">Tarifs</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-outline" onclick="openLogin()">Connexion</button>
+      <button class="btn-primary" onclick="openLogin()">Commencer</button>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-badge">v2.4 — Nouvelle version disponible</div>
+    <h1 class="hero-title">La plateforme<br><span class="gradient-text">client-serveur</span><br>nouvelle génération</h1>
+    <p class="hero-sub">SepactClient est l'outil ultime pour gérer, surveiller et déployer vos instances en quelques clics. Puissant, rapide, élégant.</p>
+    <div class="hero-btns">
+      <button class="btn-primary big" onclick="openLogin()">Accéder au portail →</button>
+      <button class="btn-ghost big">Voir la démo</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span>12k+</span><p>Utilisateurs actifs</p></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span>99.9%</span><p>Disponibilité</p></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span>< 10ms</span><p>Latence moyenne</p></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <div class="section-label">// FONCTIONNALITÉS</div>
+    <h2>Tout ce dont vous avez besoin</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Déploiement Instant</h3>
+        <p>Déployez votre client en un clic. Intégration native avec GitHub & Vercel.</p>
+      </div>
+      <div class="feature-card featured">
+        <div class="feature-icon">🔐</div>
+        <h3>Authentification Sécurisée</h3>
+        <p>Système de comptes multi-niveaux avec gestion des accès granulaire.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3>Gestionnaire de Packages</h3>
+        <p>Téléchargez, mettez à jour et gérez vos modules directement depuis le portail.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Analytics Temps Réel</h3>
+        <p>Surveillez vos instances avec des métriques en temps réel et des alertes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Multi-Région</h3>
+        <p>Déployez sur plusieurs régions simultanément pour une latence minimale.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔧</div>
+        <h3>API Complète</h3>
+        <p>Automatisez tout via notre API REST documentée et nos webhooks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="pricing">
+    <div class="section-label">// TARIFS</div>
+    <h2>Choisissez votre plan</h2>
+    <div class="pricing-grid">
+      <div class="plan-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">Gratuit</div>
+        <ul class="plan-features">
+          <li>✓ 1 instance</li>
+          <li>✓ Téléchargement client</li>
+          <li>✓ Support communautaire</li>
+          <li class="disabled">✗ Analytics avancés</li>
+          <li class="disabled">✗ Multi-région</li>
+        </ul>
+        <button class="btn-outline" onclick="openLogin()">Commencer gratuit</button>
+      </div>
+      <div class="plan-card pro">
+        <div class="plan-badge">POPULAIRE</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">€19<span>/mois</span></div>
+        <ul class="plan-features">
+          <li>✓ 10 instances</li>
+          <li>✓ Téléchargement client Pro</li>
+          <li>✓ Analytics temps réel</li>
+          <li>✓ Support prioritaire</li>
+          <li class="disabled">✗ Multi-région</li>
+        </ul>
+        <button class="btn-primary" onclick="openLogin()">Choisir Pro</button>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">€99<span>/mois</span></div>
+        <ul class="plan-features">
+          <li>✓ Instances illimitées</li>
+          <li>✓ Client Enterprise</li>
+          <li>✓ Analytics avancés</li>
+          <li>✓ Multi-région</li>
+          <li>✓ SLA 99.99%</li>
+        </ul>
+        <button class="btn-outline" onclick="openLogin()">Contacter l'équipe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-logo">SEPACT<span>CLIENT</span></div>
+    <p class="footer-sub">Construire le futur, un client à la fois.</p>
+    <div class="footer-links">
+      <a href="#">Documentation</a>
+      <a href="#">GitHub</a>
+      <a href="#">Discord</a>
+      <a href="#">Status</a>
+    </div>
+    <p class="footer-copy">© 2025 SepactClient. Tous droits réservés.</p>
+  </footer>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginModal" onclick="closeOnOverlay(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeLogin()">✕</button>
+      <div class="modal-logo">SEPACT<span>CLIENT</span></div>
+      <h2 class="modal-title">Connexion</h2>
+      <p class="modal-sub">Accédez à votre espace client</p>
+
+      <div id="loginError" class="error-msg" style="display:none">Identifiants incorrects</div>
+
+      <div class="form-group">
+        <label>Pseudo</label>
+        <input type="text" id="loginUser" placeholder="votre_pseudo" autocomplete="username"/>
+      </div>
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"/>
+      </div>
+      <button class="btn-primary full" onclick="doLogin()">Se connecter →</button>
+      <p class="modal-footer-link">Pas de compte ? <a href="#" onclick="openRegister()">Créer un compte</a></p>
+    </div>
+  </div>
+
+  <!-- REGISTER MODAL -->
+  <div class="modal-overlay" id="registerModal" onclick="closeOnOverlay(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeRegister()">✕</button>
+      <div class="modal-logo">SEPACT<span>CLIENT</span></div>
+      <h2 class="modal-title">Créer un compte</h2>
+      <p class="modal-sub">Rejoignez SepactClient gratuitement</p>
+      <div id="registerError" class="error-msg" style="display:none"></div>
+      <div class="form-group">
+        <label>Pseudo</label>
+        <input type="text" id="regUser" placeholder="votre_pseudo"/>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="regEmail" placeholder="email@exemple.com"/>
+      </div>
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <input type="password" id="regPass" placeholder="••••••••"/>
+      </div>
+      <div class="form-group">
+        <label>Plan</label>
+        <select id="regPlan">
+          <option value="starter">Starter (Gratuit)</option>
+          <option value="pro">Pro (€19/mois)</option>
+          <option value="enterprise">Enterprise (€99/mois)</option>
+        </select>
+      </div>
+      <button class="btn-primary full" onclick="doRegister()">Créer mon compte →</button>
+      <p class="modal-footer-link">Déjà un compte ? <a href="#" onclick="openLogin()">Se connecter</a></p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="dashboard hidden">
+    <aside class="sidebar">
+      <div class="sidebar-logo">SEPACT<span>CLIENT</span></div>
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" onclick="showSection('overview')">📊 Vue d'ensemble</a>
+        <a class="sidebar-link" onclick="showSection('download')">📦 Téléchargements</a>
+        <a class="sidebar-link" onclick="showSection('account')">👤 Mon compte</a>
+        <a class="sidebar-link" onclick="showSection('settings')">⚙️ Paramètres</a>
+      </nav>
+      <button class="btn-logout" onclick="doLogout()">⏻ Déconnexion</button>
+    </aside>
+
+    <main class="dash-main">
+      <!-- OVERVIEW -->
+      <section id="sec-overview" class="dash-section">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-title">Bonjour, <span id="dashUser">User</span> 👋</h1>
+            <p class="dash-sub">Voici un aperçu de votre compte</p>
+          </div>
+          <div class="plan-badge-dash" id="dashPlan">STARTER</div>
+        </div>
+        <div class="dash-cards">
+          <div class="dash-card">
+            <p class="card-label">Instances actives</p>
+            <p class="card-value">1</p>
+            <p class="card-hint">sur 1 max</p>
+          </div>
+          <div class="dash-card">
+            <p class="card-label">Statut</p>
+            <p class="card-value green">● En ligne</p>
+            <p class="card-hint">Dernière connexion: maintenant</p>
+          </div>
+          <div class="dash-card">
+            <p class="card-label">Client</p>
+            <p class="card-value" id="clientVersion">v2.4.1</p>
+            <p class="card-hint">Dernière version</p>
+          </div>
+          <div class="dash-card">
+            <p class="card-label">Uptime</p>
+            <p class="card-value">99.9%</p>
+            <p class="card-hint">Ce mois</p>
+          </div>
+        </div>
+        <div class="dash-alert">
+          <span>🔔</span>
+          <span>Nouvelle mise à jour disponible — SepactClient v2.4.1 est disponible. <a onclick="showSection('download')">Télécharger maintenant</a></span>
+        </div>
+      </section>
+
+      <!-- DOWNLOAD -->
+      <section id="sec-download" class="dash-section hidden">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-title">Téléchargements</h1>
+            <p class="dash-sub">Téléchargez votre client SepactClient</p>
+          </div>
+        </div>
+        <div class="download-grid" id="downloadGrid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- ACCOUNT -->
+      <section id="sec-account" class="dash-section hidden">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-title">Mon compte</h1>
+            <p class="dash-sub">Gérez vos informations personnelles</p>
+          </div>
+        </div>
+        <div class="account-card">
+          <div class="account-avatar" id="accountAvatar">U</div>
+          <div class="account-info">
+            <div class="info-row">
+              <span class="info-label">Pseudo</span>
+              <span class="info-val" id="accUser">—</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Email</span>
+              <span class="info-val" id="accEmail">—</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Plan</span>
+              <span class="info-val" id="accPlan">—</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Membre depuis</span>
+              <span class="info-val" id="accDate">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="upgrade-banner" id="upgradeBanner">
+          <div>
+            <p class="ub-title">Passez à Pro</p>
+            <p class="ub-sub">Débloquez 10 instances, analytics et plus.</p>
+          </div>
+          <button class="btn-primary" onclick="alert('Redirection vers le paiement...')">Upgrade →</button>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section id="sec-settings" class="dash-section hidden">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-title">Paramètres</h1>
+            <p class="dash-sub">Configurez votre espace client</p>
+          </div>
+        </div>
+        <div class="settings-group">
+          <h3>Notifications</h3>
+          <label class="toggle-row">
+            <span>Mises à jour automatiques</span>
+            <input type="checkbox" checked class="toggle-input">
+            <span class="toggle-switch"></span>
+          </label>
+          <label class="toggle-row">
+            <span>Alertes de sécurité</span>
+            <input type="checkbox" checked class="toggle-input">
+            <span class="toggle-switch"></span>
+          </label>
+          <label class="toggle-row">
+            <span>Newsletter</span>
+            <input type="checkbox" class="toggle-input">
+            <span class="toggle-switch"></span>
+          </label>
+        </div>
+        <div class="settings-group danger-zone">
+          <h3>Zone de danger</h3>
+          <button class="btn-danger" onclick="if(confirm('Supprimer votre compte ?')) doLogout()">Supprimer mon compte</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
